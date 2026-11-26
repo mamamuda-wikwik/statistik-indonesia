@@ -1,0 +1,234 @@
+/* Statistik Indonesia — an original editorial look: warm paper, deep pine,
+   terracotta and gold. System fonts only, so the site needs no network. */
+
+:root {
+  --paper: #f6f2e9;
+  --card: #fffdf8;
+  --ink: #1d2b26;
+  --muted: #5c6b64;
+  --pine: #123f36;
+  --pine-soft: #1f5c4e;
+  --terra: #c65d21;
+  --gold: #d9a441;
+  --line: #e3ddd0;
+  --focus: #8a5a83;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+a { color: var(--pine-soft); }
+a:hover { color: var(--terra); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* --- Header --- */
+.site-header {
+  background: var(--pine);
+  color: #f6f2e9;
+  border-bottom: 5px solid var(--gold);
+}
+.site-header .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px 0;
+}
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: #f6f2e9;
+}
+.wordmark:hover { color: #f6f2e9; }
+.wordmark .mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.wordmark .mark em { font-style: normal; color: var(--gold); }
+.wordmark .tag { font-size: 14px; color: #cfe0d8; }
+nav { margin-top: 12px; }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 2px;
+}
+nav a {
+  display: block;
+  padding: 9px 13px;
+  color: #dcebe3;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 8px 8px 0 0;
+}
+nav a:hover { color: #fff; background: #1b4f43; }
+nav a[aria-current="page"] {
+  background: var(--paper);
+  color: var(--pine);
+  font-weight: 700;
+}
+
+/* --- Page --- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+.kicker {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--terra);
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+.lede { font-size: 19px; color: #33413b; max-width: 68ch; }
+.source, .src { font-size: 13px; color: var(--muted); }
+.source { margin: 6px 0 0; }
+
+/* --- Cards and grids --- */
+.grid { display: grid; gap: 16px; }
+.grid.stats { grid-template-columns: repeat(3, 1fr); margin: 22px 0; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.card.stat h2 { font-family: system-ui, sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 0 0 8px; }
+.card .big { font-family: Georgia, "Times New Roman", serif; font-size: 38px; font-weight: 700; line-height: 1.05; margin: 0; }
+.card .big span { font-size: 17px; font-weight: 400; color: var(--muted); }
+.card .note { margin: 6px 0 2px; font-size: 15px; }
+.card .src { margin: 0; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 0 0 16px;
+}
+.two-col .panel { margin-bottom: 0; }
+.panel p:last-child { margin-bottom: 0; }
+
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { padding: 12px 0; border-top: 1px solid var(--line); }
+.news li:first-child { border-top: 0; padding-top: 0; }
+.plain { margin: 0; padding-left: 20px; }
+.plain li { margin: 8px 0; }
+.sources li { margin: 14px 0; }
+
+/* --- Charts --- */
+.chart { margin: 12px 0 4px; }
+.chart svg { display: block; }
+.chart figcaption { font-size: 14px; font-weight: 700; color: var(--ink); margin-top: 6px; }
+.donut-wrap { display: grid; grid-template-columns: 240px 1fr; gap: 8px 18px; align-items: center; }
+.donut-wrap .donut { max-width: 240px; }
+.donut-wrap figcaption { grid-column: 1 / -1; }
+.legend { list-style: none; margin: 0; padding: 0; }
+.legend li { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 15px; }
+.legend .swatch { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+.legend .leg-label { flex: 1; }
+
+/* --- Provinces explorer --- */
+.controls { display: flex; flex-direction: column; gap: 14px; margin-bottom: 10px; }
+.search { font-weight: 700; font-size: 15px; }
+.search input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 13px;
+  font-size: 16px;
+  border: 1px solid #b9b2a4;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button, .toggle button, .table-actions button {
+  padding: 8px 14px;
+  font-size: 15px;
+  border: 1px solid #b9b2a4;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.chips button:hover, .toggle button:hover, .table-actions button:hover { border-color: var(--pine-soft); }
+.chips button.on, .toggle button.on { background: var(--pine); border-color: var(--pine); color: #fff; font-weight: 700; }
+.result-count { font-size: 14px; color: var(--muted); }
+.table-wrap { overflow-x: auto; margin: 6px -6px 0; padding: 0 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+th button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--pine);
+  cursor: pointer;
+  text-align: left;
+}
+th button:hover { color: var(--terra); }
+td.num, th .num { text-align: right; }
+td.num { font-variant-numeric: tabular-nums; }
+tbody tr:hover { background: #faf6ec; }
+.table-actions { margin-top: 14px; }
+.table-actions button { border-radius: 8px; }
+.toggle { display: flex; gap: 8px; margin-top: 12px; }
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--pine);
+  color: #cfe0d8;
+  font-size: 14px;
+}
+.site-footer .wrap { max-width: 1100px; margin: 0 auto; padding: 22px 20px; }
+.site-footer a { color: #f6f2e9; }
+.site-footer p { margin: 4px 0; }
+
+/* --- Phones --- */
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  h1 { font-size: 30px; }
+  .wordmark .mark { font-size: 24px; }
+  nav a { padding: 8px 10px; font-size: 14px; }
+  .grid.stats { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .card .big { font-size: 30px; }
+  .donut-wrap { grid-template-columns: 1fr; }
+  .donut-wrap .donut { margin: 0 auto; }
+  main { padding: 20px 14px 40px; }
+}
+@media (max-width: 460px) {
+  .grid.stats { grid-template-columns: 1fr; }
+}
